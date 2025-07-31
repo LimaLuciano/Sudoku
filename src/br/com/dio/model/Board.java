@@ -32,7 +32,7 @@ public class Board {
         }
 
         return spaces.stream().flatMap(Collection::stream)
-                .anyMatch(s -> nonNull(s.getActual()) && s.getActual().equals(s.getExpected()));
+                .anyMatch(s -> nonNull(s.getActual()) && !s.getActual().equals(s.getExpected()));
     }
 
     public boolean changeValue(final int col, final int row, final int value){
@@ -59,8 +59,8 @@ public class Board {
         spaces.forEach(c -> c.forEach(Space::clearSpace));
     }
 
-    public boolean gameIsFinished(){
-        return !hasErrors() && getStatus().equals(COMPLETE);
+    public boolean gameIsFinished() {
+        return getStatus() == COMPLETE && !hasErrors();
     }
 
 }
