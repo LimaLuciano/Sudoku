@@ -59,7 +59,7 @@ public class Board {
         spaces.forEach(c -> c.forEach(Space::clearSpace));
     }
 
-    public boolean GameIsFinished(){
+    public boolean gameIsFinished(){
         return !hasErrors() && getStatus().equals(COMPLETE);
     }
 
